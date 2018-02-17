@@ -1,0 +1,96 @@
+.content {
+    width: 100%;
+    .top {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        border-bottom: 1px solid transparent;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .top_item {
+            display: inline-block;
+            margin: 20px;
+            margin-left: 0;
+            text-align: center;
+            cursor: pointer;
+            .top_item_icon {
+                font-size: 25px;
+                display: block;
+                margin-bottom: 2px;
+            }
+            .top_item_text {
+                font-size: 14px;
+            }
+        }
+    }
+    .center {
+        position: absolute;
+        top: 80px;
+        bottom: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .center_border {
+            border: 10px solid #000;
+            padding: 0px 20px;
+            position: relative;
+            .center_icon {
+                font-size: 180px;
+                position: relative;
+                z-index: 1000;
+                padding-top: 10px;
+            }
+            .center_line {
+                position: absolute;
+                background: #f5f5f9;
+            }
+            .center_line_horizontal {
+                .center_line;
+                width: 120%;
+                height: 80%;
+                left: -10%;
+                top: 10%;
+            }
+            .center_line_vertical {
+                .center_line;
+                width: 80%;
+                height: 120%;
+                left: 10%;
+                top: -11%;
+            }
+        }
+        .center_switch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            .center_switch_text {
+                font-size: 24px;
+                margin-left: 10px;
+            }
+        }
+    }
+    .bottom {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        height: 80px;
+        border-top: 1px solid #efe5e5;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .bottom_cart {
+            font-size: 40px;
+            cursor: pointer;
+        }
+        .bottom_total {
+            font-size: 17px;
+        }
+        .bottom_btn_checkout {
+            padding: 0 15px;
+        }
+    }
+}
