@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Toast, Button, Switch, Badge, Drawer, Card, List, Stepper } from 'antd-mobile';
+import { Toast, Button, Switch, Badge, Drawer, Card, List, Stepper, SwipeAction } from 'antd-mobile';
 import { Icon } from 'react-fa'
 import styles from './IndexPage.less'
 
@@ -51,33 +51,47 @@ class IndexPage extends Component {
             {
               [1, 2, 3, 4, 5, 6].map(item => {
                 return (
-                  <ListItem
+                  <SwipeAction
                     key={item}
-                    extra={
-                      <Stepper
-                        showNumber
-                        size={'small'}
-                        value={100}
-                        className={styles.cart_item_num}
-                      />
-                    }
-                    thumb={
-                      <img
-                        alt={item}
-                        src={'https://gd1.alicdn.com/imgextra/i3/0/TB1yNVHXv5TBuNjSspmXXaDRVXa_!!0-item_pic.jpg'}
-                        style={{ width: 50, height: 50 }}
-                      />
-                    }
-                    multipleLine
-                    wrap
-                    onClick={() => { }}
+                    style={{ backgroundColor: 'gray' }}
+                    autoClose
+                    right={[
+                      {
+                        text: '删除',
+                        onPress: () => console.log('delete'),
+                        style: { backgroundColor: '#F4333C', color: 'white', width: 80 },
+                      },
+                    ]}
+                    onOpen={() => console.log('global open')}
+                    onClose={() => console.log('global close')}
                   >
-                    <div className={styles.cart_item_name}>商品名称商品名商品名称商品名商品名称商品名商品名称商品名商品名称商品名</div>
-                    <ListItem.Brief>
-                      <span className={styles.cart_item_price}>￥19.8</span>
-                      <span className={styles.cart_item_subtotal}>￥19.8</span>
-                    </ListItem.Brief>
-                  </ListItem>
+                    <ListItem
+                      extra={
+                        <Stepper
+                          showNumber
+                          size={'small'}
+                          value={100}
+                          className={styles.cart_item_num}
+                        />
+                      }
+                      thumb={
+                        <img
+                          alt={item}
+                          src={'https://gd1.alicdn.com/imgextra/i3/0/TB1yNVHXv5TBuNjSspmXXaDRVXa_!!0-item_pic.jpg'}
+                          style={{ width: 50, height: 50 }}
+                        />
+                      }
+                      multipleLine
+                      wrap
+                      onClick={() => { }}
+                    >
+                      <div className={styles.cart_item_name}>商品名称商品名商品名称商品名商品名称商品名商品名称商品名商品名称商品名</div>
+                      <ListItem.Brief>
+                        <span className={styles.cart_item_price}>￥19.8</span>
+                        <span className={styles.cart_item_subtotal}>￥1980</span>
+                      </ListItem.Brief>
+                    </ListItem>
+                  </SwipeAction>
                 );
               })
             }
@@ -123,7 +137,7 @@ class IndexPage extends Component {
         >
           <div className={styles.bottom} onClick={this.handleCartOpen}>
             <Badge text={cartNum}><Icon name="shopping-cart" className={styles.bottom_cart} /></Badge>
-            <div className={styles.bottom_total}>合计：￥{cartTotal || 0}</div>
+            <div className={styles.bottom_total}>合计：<span className={styles.bottom_sum}>￥{cartTotal || 0}</span></div>
             <Button className={styles.bottom_btn_checkout} type="primary" onClick={this.handleCheckout}>去结算</Button>
           </div>
         </Drawer>
