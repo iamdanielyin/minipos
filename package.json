@@ -22,7 +22,8 @@
     "fs-extra": "^5.0.0",
     "ibird": "^1.0.0-alpha.20",
     "ibird-mongoose": "^1.0.0-alpha.22",
-    "ibird-redis": "^1.0.0-alpha.2"
+    "ibird-redis": "^1.0.0-alpha.2",
+    "moment": "^2.20.1"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
