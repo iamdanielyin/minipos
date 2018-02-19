@@ -1,6 +1,7 @@
 /**
  * 入口文件
  */
+const path = require('path');
 const ibird = require('ibird');
 const mongooseAddon = require('ibird-mongoose');
 const redisAddon = require('ibird-redis');
@@ -12,6 +13,7 @@ const app = ibird.newApp({
   },
   weixin: {
     tokenKey: 'dexdev_tools_access_token',
+    ticketKey: 'dexdev_tools_ticket',
     appid: 'wxa8ee312a1ad60f61',
     secret: 'e798f5f17e6b20dfbde33ed28a150412'
   },
