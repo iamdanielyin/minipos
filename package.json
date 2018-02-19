@@ -1,19 +1,36 @@
 {
-  "private": true,
+  "name": "minipos",
+  "version": "1.0.0",
+  "description": "iPos",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinfxs/minipos.git"
+  },
+  "keywords": [],
+  "author": "Daniel Yin <yinfxs@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yinfxs/minipos/issues"
+  },
+  "homepage": "https://github.com/yinfxs/minipos#readme",
   "dependencies": {
-    "antd-mobile": "^2.1.6",
-    "dva": "^2.1.0",
-    "dva-loading": "^1.0.4",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-fa": "^5.0.0"
+    "babel-runtime": "6.26.0",
+    "fs-extra": "^5.0.0",
+    "ibird": "^1.0.0-alpha.20",
+    "ibird-mongoose": "^1.0.0-alpha.22",
+    "ibird-redis": "^1.0.0-alpha.2"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.6.3",
-    "roadhog": "^2.2.0"
-  },
-  "scripts": {
-    "start": "roadhog server",
-    "build": "roadhog build"
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.6.1",
+    "gulp": "3.9.1",
+    "gulp-babel": "7.0.0",
+    "gulp-sequence": "0.4.6",
+    "gulp-uglify": "3.0.0"
   }
 }

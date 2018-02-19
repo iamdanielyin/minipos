@@ -1,2 +1,3 @@
-# ipos
-iPos
+# minipos
+
+Mini-POS
