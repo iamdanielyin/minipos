@@ -23,14 +23,14 @@ const defineSchema = new Schema({
         type: String,
         displayName: '商品简介'
     },
-    price: {
-        type: String,
-        displayName: '商品单价',
-        default: 0
-    },
     unit: {
         type: String,
         displayName: '商品单位'
+    },
+    price: {
+        type: Number,
+        displayName: '商品单价',
+        default: 0
     }
 });
 
