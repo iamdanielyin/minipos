@@ -19,6 +19,7 @@ const app = ibird.newApp({
   },
   redis: 'redis://:F7B73743E7AEDD58E58900F4782550BF@www.wosoft.me:6412',
   mongo: 'mongodb://wosoft:wosoft2016@www.wosoft.me:20102/minipos?authSource=admin',
+  middlewareDir: path.join(__dirname, 'middleware'),
   routesDir: path.join(__dirname, 'routes')
 });
 

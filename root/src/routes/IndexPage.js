@@ -88,7 +88,7 @@ class IndexPage extends Component {
                       <div className={styles.cart_item_name}>商品名称商品名商品名称商品名商品名称商品名商品名称商品名商品名称商品名</div>
                       <ListItem.Brief>
                         <span className={styles.cart_item_price}>￥19.8</span>
-                        <span className={styles.cart_item_subtotal}>￥1980</span>
+                        <span className={styles.cart_item_subtotal}>1980</span>
                       </ListItem.Brief>
                     </ListItem>
                   </SwipeAction>
