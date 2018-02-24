@@ -8,6 +8,9 @@ const redisAddon = require('ibird-redis');
 
 const app = ibird.newApp({
   prefix: '/api',
+  statics: {
+    '/': __dirname + '/public'
+  },
   cross: {
     credentials: true
   },
