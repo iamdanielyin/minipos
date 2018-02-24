@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import wx from 'weixin-js-sdk';
 import { connect } from 'dva';
 import { Toast, Button, Switch, Badge, Drawer, Card, List, Stepper, SwipeAction } from 'antd-mobile';
 import { Icon } from 'react-fa'
@@ -33,7 +34,13 @@ class IndexPage extends Component {
   }
 
   handleScanning = () => {
-    Toast.info('扫码...');
+    wx.scanQRCode({
+      needResult: 1,
+      success: (res) => {
+        const result = res.resultStr;
+        Toast.info(`扫码结果：${result}`);
+      }
+    });
   }
   handleCartOpen = () => {
     this.setState({ cartOpen: !this.state.cartOpen });
@@ -41,6 +48,9 @@ class IndexPage extends Component {
 
   render() {
     const { cartNum, cartTotal, cartOpen, flag, selectedNum } = this.state;
+    const { index } = this.props;
+    const { _JSSDKConfig } = index;
+    console.log(_JSSDKConfig);
     const sidebar = (
       <Card full>
         <Card.Header

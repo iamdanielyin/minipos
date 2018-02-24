@@ -1,23 +1,38 @@
+import qs from 'qs';
 import * as apiService from '../services/api';
+import jweixin from '../utils/jweixin';
 
 export default {
   namespace: 'index',
   state: {
-    count: 0
+    _JSSDKConfig: 0
   },
   reducers: {
-    add(count) { return count + 1 },
-    minus(count) { return count - 1 },
+    updateJSSDKConfig(state, { payload }) {
+      return {
+        ...state,
+        _JSSDKConfig: payload
+      }
+    }
   },
   effects: {
-    * get({ payload }, { put, call, select }) {
-      const { data, errcode, errmsg } = yield call(apiService.get, payload);
-      const indexPage = yield select(state => state.index);
-      if (!errcode && !errmsg) {
-        console.log(indexPage);
-        console.log(data);
+    * jssdk_config({ payload }, { put, call, select }) {
+      const { data, errcode, errmsg } = yield call(apiService.get, { url: `/jssdk/config?${qs.stringify(payload)}` });
+      if (!errcode && !errmsg && data) {
+        jweixin(Object.assign({ debug: true }, data));
+        yield put({ type: 'updateJSSDKConfig', payload: data });
       }
-      yield put({ type: 'add', payload: 210 });
+    },
+  },
+  subscriptions: {
+    setup({ dispatch, history }) {
+      return history.listen(({ pathname, query }) => {
+        if (pathname === '/') {
+          dispatch({
+            type: 'jssdk_config', payload: { jsApiList: 'scanQRCode' }
+          });
+        }
+      });
     },
   },
 }

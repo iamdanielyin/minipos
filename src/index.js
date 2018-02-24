@@ -12,10 +12,11 @@ const app = ibird.newApp({
     credentials: true
   },
   weixin: {
-    tokenKey: 'dexdev_tools_access_token',
-    ticketKey: 'dexdev_tools_ticket',
     appid: 'wxa8ee312a1ad60f61',
-    secret: 'e798f5f17e6b20dfbde33ed28a150412'
+    secret: 'e798f5f17e6b20dfbde33ed28a150412',
+    tokenUrl: 'https://dexdev-tools.wosoft.me/api/weixin/access_token',
+    ticketUrl: 'https://dexdev-tools.wosoft.me/api/weixin/jsapi_ticket',
+    signatureUrl: 'https://dexdev-tools.wosoft.me/api/weixin/signature'
   },
   redis: 'redis://:F7B73743E7AEDD58E58900F4782550BF@www.wosoft.me:6412',
   mongo: 'mongodb://wosoft:wosoft2016@www.wosoft.me:20102/minipos?authSource=admin',

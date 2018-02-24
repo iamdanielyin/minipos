@@ -4,7 +4,8 @@
   "description": "Mini-POS",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node index.js"
+    "start": "NODE_ENV=production node index.js",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "ibird": "^1.0.0-alpha.20",
     "ibird-mongoose": "^1.0.0-alpha.22",
     "ibird-redis": "^1.0.0-alpha.2",
-    "moment": "^2.20.1"
+    "moment": "^2.20.1",
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
