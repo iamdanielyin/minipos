@@ -1,3 +1,3 @@
 # minipos
 
-Mini-POS
+MINI-POS
