@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import wx from 'weixin-js-sdk';
 import { connect } from 'dva';
 import { Toast, Button, Switch, Badge, Drawer, Card, List, Stepper, SwipeAction } from 'antd-mobile';
-import { Icon } from 'react-fa'
 import styles from './IndexPage.less'
+
+import scanIcon from '../statics/条码采集.png';
+import listIcon from '../statics/类目.png';
+import orderIcon from '../statics/订单.png';
+import cartIcon from '../statics/购物车.png';
 
 const { Item: ListItem } = List;
 
@@ -114,20 +118,16 @@ class IndexPage extends Component {
       <div className={styles.content}>
         <div className={styles.top}>
           <div className={styles.top_item} onClick={this.handleGoods}>
-            <Icon name="list" className={styles.top_item_icon} />
+            <img src={listIcon} alt={'查货'} className={styles.top_item_icon} />
             <span className={styles.top_item_text}>查货</span>
           </div>
           <div className={styles.top_item} onClick={this.handleOrders}>
-            <Icon name="shopping-bag" className={styles.top_item_icon} />
+            <img src={orderIcon} alt={'订单'} className={styles.top_item_icon} />
             <span className={styles.top_item_text}>订单</span>
           </div>
         </div>
         <div className={styles.center}>
-          <div className={styles.center_border} onClick={this.handleScanning}>
-            <Icon name="barcode" className={styles.center_icon} />
-            <div className={styles.center_line_horizontal} />
-            <div className={styles.center_line_vertical} />
-          </div>
+          <img src={scanIcon} alt={'扫码'} className={styles.center_icon} onClick={this.handleScanning} />
           <div className={styles.center_switch}>
             <Switch
               color={'#000'}
@@ -146,12 +146,14 @@ class IndexPage extends Component {
           position={'bottom'}
         >
           <div className={styles.bottom} onClick={this.handleCartOpen}>
-            <Badge text={cartNum}><Icon name="shopping-cart" className={styles.bottom_cart} /></Badge>
+            <Badge text={cartNum}>
+              <img src={cartIcon} alt={'购物车'} className={styles.bottom_cart} />
+            </Badge>
             <div className={styles.bottom_total}>合计：<span className={styles.bottom_sum}>￥{cartTotal || 0}</span></div>
             <Button className={styles.bottom_btn_checkout} type="primary" onClick={this.handleCheckout}>去结算</Button>
           </div>
         </Drawer>
-      </div >
+      </div>
     )
   }
 }

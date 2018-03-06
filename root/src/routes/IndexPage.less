@@ -16,7 +16,7 @@
             text-align: center;
             cursor: pointer;
             .top_item_icon {
-                font-size: 25px;
+                width: 30px;
                 display: block;
                 margin-bottom: 2px;
             }
@@ -34,34 +34,10 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        .center_border {
-            border: 10px solid #000;
+        z-index: 100;
+        .center_icon {
+            width: 200px;
             padding: 0px 20px;
-            position: relative;
-            .center_icon {
-                font-size: 180px;
-                position: relative;
-                z-index: 2;
-                padding-top: 10px;
-            }
-            .center_line {
-                position: absolute;
-                background: #f5f5f9;
-            }
-            .center_line_horizontal {
-                .center_line;
-                width: 120%;
-                height: 80%;
-                left: -10%;
-                top: 10%;
-            }
-            .center_line_vertical {
-                .center_line;
-                width: 80%;
-                height: 120%;
-                left: 10%;
-                top: -11%;
-            }
         }
         .center_switch {
             display: flex;
@@ -86,7 +62,7 @@
         z-index: 3;
         background: #fff;
         .bottom_cart {
-            font-size: 40px;
+            width: 40px;
             cursor: pointer;
         }
         .bottom_total {
