@@ -1,5 +1,3 @@
-import { stringify } from 'querystring';
-
 const request = require('superagent');
 const ibird = require('ibird');
 
@@ -8,14 +6,14 @@ module.exports = (router) => {
     const app = ibird.ctx();
     const config = app.c();
     const { weixin } = config;
-    const { jsApiList = '' } = ctx.query;
+    const { jsApiList = '', url = ctx.origin } = ctx.query;
     try {
       let res = await request.get(weixin.ticketUrl);
       const obj = {
         noncestr: Math.random().toString().substring(2),
         jsapi_ticket: res.body.data,
         timestamp: parseInt(Date.now() / 1000),
-        url: ctx.href.split('#')[0]
+        url
       };
       console.log(JSON.stringify(obj, null, 2));
       res = await request.post(weixin.signatureUrl).send(obj);

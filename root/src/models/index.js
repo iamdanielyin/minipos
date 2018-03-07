@@ -34,7 +34,7 @@ export default {
       return history.listen(({ pathname, query }) => {
         if (pathname === '/') {
           dispatch({
-            type: 'jssdk_config', payload: { jsApiList: 'scanQRCode' }
+            type: 'jssdk_config', payload: { jsApiList: 'scanQRCode', url: location.href.split('#')[0] }
           });
         }
       });
