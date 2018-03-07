@@ -17,7 +17,7 @@ module.exports = (router) => {
         timestamp: parseInt(Date.now() / 1000),
         url: ctx.href.split('#')[0]
       };
-      console.log(JSON > stringify(obj, null, 2));
+      console.log(JSON.stringify(obj, null, 2));
       res = await request.post(weixin.signatureUrl).send(obj);
       obj.signature = res.body.data || null;
       const ret = {
