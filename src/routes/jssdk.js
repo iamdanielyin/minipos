@@ -13,7 +13,7 @@ module.exports = (router) => {
         noncestr: Math.random().toString().substring(2),
         jsapi_ticket: res.body.data,
         timestamp: parseInt(Date.now() / 1000),
-        url: ctx.href
+        url: ctx.href.split('#')[0]
       };
       res = await request.post(weixin.signatureUrl).send(obj);
       obj.signature = res.body.data || null;
