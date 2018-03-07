@@ -45,6 +45,7 @@ class IndexPage extends Component {
         Toast.info(`扫码结果：${result}`);
       }
     });
+    Toast.info(typeof wx.scanQRCode);
   }
   handleCartOpen = () => {
     this.setState({ cartOpen: !this.state.cartOpen });
