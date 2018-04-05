@@ -35,7 +35,7 @@ const defineSchema = new Schema({
 });
 
 module.exports = {
-    name: 'Product',
+    name: 'Good',
     displayName: '商品',
     schema: defineSchema
 };

@@ -43,19 +43,26 @@ class IndexPage extends Component {
       success: (res) => {
         const result = res.resultStr;
         Toast.info(`扫码结果：${result}`);
+        this.props.dispatch({
+          type: 'index/fetchGoodInfo',
+          payload: {
+            cond: {
+              barcode: result
+            }
+          }
+        })
       }
     });
-    Toast.info(typeof wx.scanQRCode);
   }
+
   handleCartOpen = () => {
     this.setState({ cartOpen: !this.state.cartOpen });
   }
 
   render() {
     const { cartNum, cartTotal, cartOpen, flag, selectedNum } = this.state;
-    const { index } = this.props;
-    const { _JSSDKConfig } = index;
-    console.log(_JSSDKConfig);
+    const { _GoodInfo } = this.props.index;
+    console.log(_GoodInfo);
     const sidebar = (
       <Card full>
         <Card.Header
