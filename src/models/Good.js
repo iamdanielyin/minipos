@@ -37,5 +37,12 @@ const defineSchema = new Schema({
 module.exports = {
     name: 'Good',
     displayName: '商品',
-    schema: defineSchema
+    schema: defineSchema,
+    routeSwitch: {
+        list: true,
+        id: true,
+        create: true,
+        update: true,
+        remove: true
+    }
 };

@@ -72,5 +72,12 @@ defineSchema.pre('save', function (next) {
 module.exports = {
     name: 'Order',
     displayName: '订单',
-    schema: defineSchema
+    schema: defineSchema,
+    routeSwitch: {
+        list: true,
+        id: true,
+        create: true,
+        update: true,
+        remove: true
+    }
 };
